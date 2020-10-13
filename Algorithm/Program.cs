@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSharp_Algorithm
+namespace Algorithms
 {
     class Program
     {
