@@ -4,6 +4,7 @@ using System.Text;
 using Xunit;
 using Algorithms;
 using System.Linq;
+using Algorithms.Sort;
 
 namespace XUnitTestProject.Algorithms
 {
@@ -42,6 +43,15 @@ namespace XUnitTestProject.Algorithms
             var list = new List<int>() { 89, 45, 68, 90, 29, 34, 17 };
             BubbleSort.SortDescending(list);
             int[] sortedList = { 90, 89, 68, 45, 34, 29, 17 };
+            Assert.True(list.SequenceEqual(sortedList));
+        }
+
+        [Fact]
+        public void InsertSortTest()
+        {
+            var list = new List<int>() { 89, 45, 68, 90, 29, 34, 17 };
+            InsertionSort.Sort(list);
+            int[] sortedList = { 17, 29, 34, 45, 68, 89, 90 };
             Assert.True(list.SequenceEqual(sortedList));
         }
     }

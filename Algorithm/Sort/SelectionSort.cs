@@ -5,6 +5,11 @@ using System.Text;
 
 namespace Algorithms
 {
+    /*
+     获取最值的次数i: 最后一个元素不要比较，所以有n-2次获取最值过程
+     每次获取最值需要比较的次数: 从i+1到n-1
+     每次获取最值后有可能要做一次交换
+      */
     public static class SelectionSort
     {
         public static void SortAscending<T>(IList<T> collection, Comparer<T> comparer = null)

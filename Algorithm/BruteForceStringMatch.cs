@@ -6,6 +6,10 @@ namespace Algorithms
 {
     public class BruteForceStringMatch
     {
+        /*
+         子串最多需要移动的次数: n - m +1次
+         每一次移动子串最多需要比较的次数: m次
+             */
         public static int Match(string text, string pattern)
         {
             int ret = -1;

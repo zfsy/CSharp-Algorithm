@@ -5,6 +5,10 @@ using System.Text;
 
 namespace Algorithms
 {
+    /*
+     冒泡的次数i: 和数组的个数n有关，从0到n-1
+     每一次冒泡和相邻元素比较的次数j: n - 2 - i
+        */
     public class BubbleSort
     {
         public static void SortAscending<T>(IList<T> collection, Comparer<T> comparer = null)
