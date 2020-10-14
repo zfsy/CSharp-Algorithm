@@ -7,7 +7,7 @@ namespace Algorithms
 {
     public static class SelectionSort
     {
-        public static void SortAscending<T>(this IList<T> collection, Comparer<T> comparer = null)
+        public static void SortAscending<T>(IList<T> collection, Comparer<T> comparer = null)
         {
             comparer = comparer != null ? comparer : Comparer<T>.Default; 
 
@@ -22,12 +22,12 @@ namespace Algorithms
                         min = j;
                     }
                 }
-
+              
                 collection.Swap(i, min);
             }
         }
 
-        public static void SortDescending<T>(this IList<T> collection, Comparer<T> comparer = null)
+        public static void SortDescending<T>(IList<T> collection, Comparer<T> comparer = null)
         {
             comparer = comparer != null ? comparer : Comparer<T>.Default;
 
