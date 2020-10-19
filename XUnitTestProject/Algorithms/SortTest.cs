@@ -54,5 +54,23 @@ namespace XUnitTestProject.Algorithms
             int[] sortedList = { 17, 29, 34, 45, 68, 89, 90 };
             Assert.True(list.SequenceEqual(sortedList));
         }
+
+        [Fact]
+        public void InsertSortTest2()
+        {
+            var list = new List<char>() { 'E', 'X', 'A', 'M', 'P', 'L', 'E' };
+            InsertionSort.Sort(list);
+            char[] sortedList = { 'A', 'E', 'E', 'L', 'M', 'P', 'X' };
+            Assert.True(list.SequenceEqual(sortedList));
+        }
+
+        [Fact]
+        public void InsertSortTest3()
+        {
+            var list = new List<int>() { 89, 45, 68, 90, 29, 34, 17 };
+            InsertionSort.SortStp(list);
+            int[] sortedList = { 17, 29, 34, 45, 68, 89, 90 };
+            Assert.True(list.SequenceEqual(sortedList));
+        }
     }
 }
