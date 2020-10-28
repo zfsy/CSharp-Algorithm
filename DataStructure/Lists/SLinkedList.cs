@@ -285,6 +285,32 @@ namespace DataSturctures.Lists
         /// </summary>
         public virtual void SelectionSort()
         {
+            if (IsEmpty())
+                return;
+
+            var currentNode = _firstNode;
+            while (currentNode != null)
+            {
+                var minNode = currentNode;
+                var nextNode = currentNode.Next;
+                while (nextNode != null)
+                {
+                    if (nextNode.Data.CompareTo(minNode.Data) < 0)
+                    {
+                        minNode = nextNode;
+                    }
+
+                    nextNode = nextNode.Next;
+                }
+
+                if (minNode != currentNode)
+                {
+                    var temp = minNode.Data;
+                    minNode.Data = currentNode.Data;
+                    currentNode.Data = temp;
+                }
+                currentNode = currentNode.Next;
+            }
         }
 
         /// <summary>
@@ -333,14 +359,73 @@ namespace DataSturctures.Lists
             return list;
         }
 
+        /// <summary>
+        /// Returns the list items as a readable multi--line string.
+        /// </summary>
+        /// <returns></returns>
+        public string ToReadable()
+        {
+            int i = 0;
+            var currentNode = _firstNode;
+            string listAsString = string.Empty;
+
+            while (currentNode != null)
+            {
+                listAsString = string.Format("{0}[{1}] => {2}\r\n", listAsString, i, currentNode.Data);
+                currentNode = currentNode.Next;
+                ++i;
+            }
+
+            return listAsString;
+        }
+
+        /**************************************************/
+
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new SLinkedListEnumerator(this);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new SLinkedListEnumerator(this);
+        }
+
+        /*
+            when you implement IEnumerable, you must also implement IEnumerator
+        */
+        internal class SLinkedListEnumerator : IEnumerator<T>
+        {
+            private SLinkedListNode<T> _current;
+            private SLinkedList<T> _doublyLinkedList;
+
+            public SLinkedListEnumerator(SLinkedList<T> list)
+            {
+                this._doublyLinkedList = list;
+                this._current = list.Head;
+            }
+
+            public T Current { get => this._current.Data; }
+
+            object IEnumerator.Current { get => Current; }
+
+            public bool MoveNext()
+            {
+                _current = _current.Next;
+
+                return (this._current != null);
+            }
+
+            public void Reset()
+            {
+                _current = _doublyLinkedList.Head;
+            }
+
+            public void Dispose()
+            {
+                _current = null;
+                _doublyLinkedList = null;
+            }
         }
     }
 }

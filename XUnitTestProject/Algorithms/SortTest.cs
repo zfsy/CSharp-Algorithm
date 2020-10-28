@@ -72,5 +72,41 @@ namespace XUnitTestProject.Algorithms
             int[] sortedList = { 17, 29, 34, 45, 68, 89, 90 };
             Assert.True(list.SequenceEqual(sortedList));
         }
+
+        [Fact]
+        public void MergeSortTest()
+        {
+            var list = new List<int>() { 89, 45, 68, 90, 29, 34, 17 };
+            var sortList = MergeSort.SortTopDown(list);
+            int[] sortedList = { 17, 29, 34, 45, 68, 89, 90 };
+            Assert.True(sortList.SequenceEqual(sortedList));
+        }
+
+        [Fact]
+        public void MergeSortTest2()
+        {
+            var list = new List<char> { 'E', 'X', 'A', 'M', 'P', 'L', 'E' };
+            var sortList = MergeSort.SortTopDown(list);
+            char[] sortedList = { 'A', 'E', 'E', 'L', 'M', 'P', 'X' };
+            Assert.True(sortList.SequenceEqual(sortedList));
+        }
+
+        [Fact]
+        public void MergeSortTest3()
+        {
+            var list = new List<char> { 'E', 'X', 'A', 'M', 'P', 'L', 'E' };
+            MergeSort.SortBottomUp(list);
+            char[] sortedList = { 'A', 'E', 'E', 'L', 'M', 'P', 'X' };
+            Assert.True(list.SequenceEqual(sortedList));
+        }
+
+        [Fact]
+        public void QuickSortTest()
+        {
+            var list = new List<int>() { 89, 45, 68, 90, 29, 34, 17 };
+            QuickSort.Sort(list);
+            int[] sortedList = { 17, 29, 34, 45, 68, 89, 90 };
+            Assert.True(list.SequenceEqual(sortedList));
+        }
     }
 }

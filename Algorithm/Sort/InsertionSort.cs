@@ -11,6 +11,10 @@ namespace Algorithms.Sort
 
     限位器实现: 避免了j>=0的比较，将数组的0号元素空出，每次将要插入的元素复制到0号元素。牺牲
         一个空间换取时间上的效率。
+
+        程序上的实现，不需要像思维上操作的要一个可变数组，直接利用一个临时变量。
+        已排序的序列中比要插入的变量大的后移一位，直到碰到比要插入的变量要小的，插入
+        位置定在该变量后面即可。
          */
     public class InsertionSort
     {
@@ -33,6 +37,9 @@ namespace Algorithms.Sort
             }
         }
 
+        /// <summary>
+        /// 加入了限位器的版本
+        /// </summary>
         public static void SortStp<T>(IList<T> collection, Comparer<T> comparer = null)
         { 
             comparer = comparer != null ? comparer : Comparer<T>.Default;

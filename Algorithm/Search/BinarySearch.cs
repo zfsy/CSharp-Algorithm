@@ -6,6 +6,10 @@ namespace Algorithms.Search
 {
     public class BinarySearch
     {
+        /// <summary>
+        /// 迭代实现
+        /// </summary>
+        /// <returns></returns>
         public static int Search<T>(IList<T> collection, T key, Comparer<T> comparer = null)
         {
             int ret = -1;
